@@ -103,4 +103,8 @@ router.beforeEach(async (to, from, next) => {
   next()
 })
 
+router.afterEach(() => {
+  isLoading.value = false;
+});
+
 export default router
