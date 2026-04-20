@@ -1,8 +1,8 @@
 <script setup></script>
 <template>
     <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
+        <li class="nav-item me-auto">
+            版權 Ben Chen since@1999
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
