@@ -1,6 +1,13 @@
-<script setup></script>
+<script setup>
+defineProps({
+    show: {
+        type: Boolean,
+        default: false
+    }
+});
+</script>
 <template>
-    <div class="loading">
+    <div v-if="show" class="loading">
         Loading...
     </div>
 </template>

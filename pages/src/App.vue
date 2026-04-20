@@ -1,9 +1,15 @@
 <script setup>
+import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import LoadingOverlay from './components/LoadingOverlay.vue';
+import { isLoading } from './loadingStore';
+
 </script>
 
 <template>
+  <LoadingOverlay :show="isLoading" />
+
   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
