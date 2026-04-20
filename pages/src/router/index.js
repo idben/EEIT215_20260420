@@ -9,6 +9,7 @@ import UserPostsView from '@/views/UserPostsView.vue'
 import UserProfileView from '@/views/UserProfileView.vue'
 import UserSettingsView from '@/views/UserSettingsView.vue'
 import AdminView from '@/views/AdminView.vue'
+import { isLoading } from '@/loadingStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -89,6 +90,17 @@ const router = createRouter({
       }
     },
   ],
+})
+
+router.beforeEach(async (to, from, next) => {
+  isLoading.value = true;
+  await new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  })
+  isLoading.value = false;
+  next()
 })
 
 export default router
