@@ -22,7 +22,20 @@ const router = createRouter({
     },
     {
       path: '/articles',
-      name: 'Articles'
+      name: 'Articles',
+      component: () => import('@/views/ArticlesView.vue'),
+      meta: {
+        title: "文章列表"
+      }
+    },
+    {
+      path: '/articles/:id',
+      name: 'ArticleDetail',
+      component: () => import('@/views/ArticleDetailView.vue'),
+      meta: {
+        title: "閱讀文章"
+      },
+      props: true
     },
     {
       path: '/:pathMatch(.*)*',
@@ -32,5 +45,9 @@ const router = createRouter({
     },
   ],
 })
+
+router.beforeEach(to => {
+  document.title = to.meta.title || "Vue SPA"
+});
 
 export default router

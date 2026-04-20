@@ -2,6 +2,9 @@
 import { RouterView } from 'vue-router';
 </script>
 <template>
-  <RouterView />
+  <div class="container py3">
+    <RouterView />
+  </div>
+
 </template>
 <style scoped></style>
