@@ -79,6 +79,14 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: AdminView,
+      beforeEnter: () => {
+        const isAdmin = localStorage.getItem("isAdmin") === "true"; // 把存進去的字串 true/false 轉換成布林值 true/false
+        console.log(isAdmin);
+        if (!isAdmin) {
+          alert("沒有管理權限!!");
+          return false;
+        }
+      }
     },
   ],
 })
