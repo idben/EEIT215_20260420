@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import NewsView from '@/views/NewsView.vue'
 import ContactView from '../views/ContactView.vue'
 import ArticleView from '@/views/ArticleView.vue'
+import NavTestView from '@/views/NavTestView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/edit',
       name: 'edit',
       component: () => import('../views/EditView.vue'),
+    },
+    {
+      path: '/nav-test',
+      name: 'navtest',
+      component: NavTestView,
     },
   ],
 })
