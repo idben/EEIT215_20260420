@@ -1,8 +1,11 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 <template>
     <nav class="navbar navbar-expand-sm bg-body-tertiary">
         <div class="container">
-            <a class="navbar-brand" href="#">VueSPA</a>
+            <!-- <a class="navbar-brand" href="#">VueSPA</a> -->
+            <RouterLink class="navbar-brand" to="/">VueSPA</RouterLink>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -11,12 +14,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <RouterLink to="/" class="nav-link active" aria-current="page">首頁</RouterLink>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <RouterLink to="/about" class="nav-link active" aria-current="page">關於</RouterLink>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Dropdown
@@ -32,7 +35,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                    </li>
+                    </li> -->
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
