@@ -10,6 +10,7 @@ import UserProfileView from '@/views/UserProfileView.vue'
 import UserSettingsView from '@/views/UserSettingsView.vue'
 import AdminView from '@/views/AdminView.vue'
 import { isLoading } from '@/loadingStore'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -108,6 +109,12 @@ const router = createRouter({
           return false;
         }
       }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFoundView,
+      meta: { title: '找不到頁面' }
     },
   ],
 })
