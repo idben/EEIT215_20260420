@@ -4,6 +4,10 @@ import NewsView from '@/views/NewsView.vue'
 import ContactView from '../views/ContactView.vue'
 import ArticleView from '@/views/ArticleView.vue'
 import NavTestView from '@/views/NavTestView.vue'
+import UserView from '@/views/UserView.vue'
+import UserPostsView from '@/views/UserPostsView.vue'
+import UserProfileView from '@/views/UserProfileView.vue'
+import UserSettingsView from '@/views/UserSettingsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +54,25 @@ const router = createRouter({
       path: '/nav-test',
       name: 'navtest',
       component: NavTestView,
+    },
+    {
+      path: '/user',
+      name: 'user',
+      component: UserView,
+      children: [
+        {
+          path: 'profile',
+          component: UserProfileView
+        },
+        {
+          path: 'posts',
+          component: UserPostsView
+        },
+        {
+          path: 'settings',
+          component: UserSettingsView
+        }
+      ]
     },
   ],
 })
