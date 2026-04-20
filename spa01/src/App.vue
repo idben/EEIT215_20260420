@@ -6,7 +6,12 @@ import Footer from './components/Footer.vue';
 <template>
   <NavBar />
   <main class="container py3">
-    <RouterView />
+    <div class="card">
+      <div class="card-body">
+        <RouterView />
+      </div>
+    </div>
+
   </main>
   <footer class="container">
     <Footer />
@@ -14,7 +19,7 @@ import Footer from './components/Footer.vue';
 
 </template>
 <style scoped>
-main {
+main .card {
   height: calc(100vh - 64px - 40px);
 }
 </style>
