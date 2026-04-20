@@ -62,28 +62,32 @@ const router = createRouter({
       name: 'user',
       component: UserView,
       meta: {
-        needLoading: true
+        needLoading: true,
+        title: "使用者中心"
       },
       children: [
         {
           path: 'profile',
           component: UserProfileView,
           meta: {
-            needLoading: true
+            needLoading: true,
+            title: "使用者中心 - 檔案"
           },
         },
         {
           path: 'posts',
           component: UserPostsView,
           meta: {
-            needLoading: false
+            needLoading: false,
+            title: "使用者中心 - 文章"
           },
         },
         {
           path: 'settings',
           component: UserSettingsView,
           meta: {
-            needLoading: false
+            needLoading: false,
+            title: "使用者中心 - 設定"
           },
         }
       ]
@@ -93,7 +97,8 @@ const router = createRouter({
       name: 'admin',
       component: AdminView,
       meta: {
-        needLoading: true
+        needLoading: true,
+        title: "管理介面"
       },
       beforeEnter: () => {
         const isAdmin = localStorage.getItem("isAdmin") === "true"; // 把存進去的字串 true/false 轉換成布林值 true/false
@@ -108,6 +113,7 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
+  document.title = to.meta.title || "OOXX"
   if (to.meta.needLoading) {
     isLoading.value = true;
     await new Promise((resolve, reject) => {
