@@ -1,12 +1,20 @@
 <script setup>
 import { RouterView } from 'vue-router';
 import NavBar from './components/NavBar.vue';
+import Footer from './components/Footer.vue';
 </script>
 <template>
   <NavBar />
-  <div class="container py3">
+  <main class="container py3">
     <RouterView />
-  </div>
+  </main>
+  <footer class="container">
+    <Footer />
+  </footer>
 
 </template>
-<style scoped></style>
+<style scoped>
+main {
+  height: calc(100vh - 64px - 40px);
+}
+</style>
