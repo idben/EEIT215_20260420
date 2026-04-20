@@ -19,7 +19,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <div class="text-danger">
+  <div class="text-danger1">
     <RouterView />
   </div>
 

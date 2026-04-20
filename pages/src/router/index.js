@@ -31,9 +31,19 @@ const router = createRouter({
       component: ContactView,
     },
     {
+      path: '/article',
+      name: 'article0',
+      component: ArticleView,
+    },
+    {
       path: '/article/:id',
       name: 'article',
       component: ArticleView,
+    },
+    {
+      path: '/edit',
+      name: 'edit',
+      component: () => import('../views/EditView.vue'),
     },
   ],
 })
