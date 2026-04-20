@@ -17,6 +17,9 @@ import { RouterLink } from 'vue-router';
                         <RouterLink to="/" class="nav-link active" aria-current="page">首頁</RouterLink>
                     </li>
                     <li class="nav-item">
+                        <RouterLink to="/articles" class="nav-link active" aria-current="page">文章</RouterLink>
+                    </li>
+                    <li class="nav-item">
                         <RouterLink to="/about" class="nav-link active" aria-current="page">關於</RouterLink>
                     </li>
                     <!-- <li class="nav-item dropdown">
