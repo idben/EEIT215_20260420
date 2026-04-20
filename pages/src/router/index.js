@@ -61,18 +61,30 @@ const router = createRouter({
       path: '/user',
       name: 'user',
       component: UserView,
+      meta: {
+        needLoading: true
+      },
       children: [
         {
           path: 'profile',
-          component: UserProfileView
+          component: UserProfileView,
+          meta: {
+            needLoading: true
+          },
         },
         {
           path: 'posts',
-          component: UserPostsView
+          component: UserPostsView,
+          meta: {
+            needLoading: false
+          },
         },
         {
           path: 'settings',
-          component: UserSettingsView
+          component: UserSettingsView,
+          meta: {
+            needLoading: false
+          },
         }
       ]
     },
@@ -80,6 +92,9 @@ const router = createRouter({
       path: '/admin',
       name: 'admin',
       component: AdminView,
+      meta: {
+        needLoading: true
+      },
       beforeEnter: () => {
         const isAdmin = localStorage.getItem("isAdmin") === "true"; // 把存進去的字串 true/false 轉換成布林值 true/false
         console.log(isAdmin);
@@ -93,13 +108,16 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from, next) => {
-  isLoading.value = true;
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve();
-    }, 2000);
-  })
-  isLoading.value = false;
+  if (to.meta.needLoading) {
+    isLoading.value = true;
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    })
+    isLoading.value = false;
+  }
+
   next()
 })
 
